@@ -1,0 +1,59 @@
+﻿@model CreateBookViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row py-5 mt-5 ms-5">
+    <div class="col-lg-12">
+      <form asp-action="Edit" method="post" enctype="multipart/form-data">
+          <div class="alert alert-danger" asp-validation-summary="ModelOnly">
+          </div>
+
+           <div class="form-group">
+            <label class="my-2" asp-for="Title"></label>
+            <!--I give it asp-for so it will automatic name the id , name att as Name , and type will be text these information are from the Model called ProductCategoryViewModel  -->
+            <input asp-for="Title" class="form-control w-50"/>
+            <span asp-validation-for="Title" class="text-danger"></span>
+           </div>
+
+            <div class="form-group">
+             <label class="my-2" asp-for="Publisher"></label>
+             <input asp-for="Publisher" class="form-control w-50"/>
+             <span asp-validation-for="Publisher" class="text-danger"></span>
+            </div>
+            
+            <br/>
+
+            <div class="form-group">
+             <label class="my-2" asp-for="Description"></label>
+             <textarea asp-for="Description" class="form-control w-50"></textarea>
+             <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <br/>
+
+            
+             <img src="~/BooksImages/@Model.CurrentImageUrl" style="height:200px;width:200px" />
+            <input asp-for="ImageFile" class="form-control mt-3 w-50"/>
+
+
+            
+
+              <br/>
+
+            <div class="form-group">
+            <label class="my-2" asp-for="CategoryId"></label>
+            <select asp-for="CategoryId" asp-items="ViewBag.CategorySelect" class="form-control w-50">
+                <option value="">Select</option>
+             </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+           </div>
+
+            <br/>
+
+           <div class="form-group">
+               <input type="submit" value="Update" class="btn btn-primary"/>
+           </div>
+
+        </form>
+    </div>  
+</div>

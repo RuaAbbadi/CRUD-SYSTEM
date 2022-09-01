@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BookItemViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<!-- Product List table-->
+
+<div class="row ms-2 my-5 py-5" >
+    <a class="text-yellow my-4" asp-action="Index" >Back to List</a>
+    <div class="col-lg-12">
+        <table id="bookTable" class="table table-striped mt-3">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">@Html.DisplayNameFor(Model=>Model.Id)</th>
+                    <th scope="col">@Html.DisplayNameFor(Model=>Model.Title)</th>
+                    <th scope="col">@Html.DisplayNameFor(Model=>Model.Description)</th>
+                    <th scope="col">@Html.DisplayNameFor(Model=>Model.Image)</th>
+                    <th scope="col">Manage</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach(var book in Model)
+                {
+                    <tr class="text-center">
+                        <td>@book.Id</td>
+                        <td>@book.Title</td>
+                        <td>@book.Description</td>
+                        <td><img  width="140px" height="200px" src="~/BooksImages/@book.Image" /></td>
+                        <td class="text-center"><a asp-action="Edit" asp-route-id="@book.Id">Edit</a> </td> 
+                    </tr>
+                     
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+@section Styles{
+    <link rel="stylesheet" src="//cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
+}
+
+@section Scripts
+{
+    <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+
+       
+
+$(function() { 
+
+
+    $('#bookTable').DataTable();
+});
+    </script>
+
+}
+
+
+
+
+
+

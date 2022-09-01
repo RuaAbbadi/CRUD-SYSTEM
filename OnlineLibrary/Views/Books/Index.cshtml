@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BookItemViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<section class="page-section bg-light " id="portfolio">
+          <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Books</h2>
+                    <h3 class="section-subheading text-muted w-75 m-auto mb-5">Tell us what titles or genres you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</h3>
+                </div>
+                <div>
+                   <div class="col-lg-6 ms-5">
+                      <a class="btn btn-primary btn-lg" asp-controller="Books" asp-action="Create"><i class="bi bi-plus-circle-fill"></i> Add a New Book</a>
+                 </div>
+
+                <div class="row">
+                @foreach (var book in Model)
+                 { 
+                    <div class="col-lg-4 col-sm-6 mt-5">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                                </div>
+                                <img class="img-fluid" style="height:330px; width:300px" src="~/BooksImages/@book.Image" alt="..."/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading">@book.Title</div>
+                                <br/>
+                                <div class="portfolio-caption-subheading text-muted">@book.Publisher</div>  
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                         <a id="open" class="btn btn-primary" asp-controller="Books"  asp-action="Details" asp-route-id="@book.Id">Details</a>
+                         <a class="btn btn-primary" asp-controller="Books"  asp-action="DataTable" asp-route-id="@book.Id">Mange</a>  
+                         <a class="btn btn-primary" asp-controller="Books"  asp-action="Delete" asp-route-id="@book.Id">Delete</a>   
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+          </div>
+ </section>
+ 
+
+
+ 
+
+

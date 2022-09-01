@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "TestAjaxLoad";
+}
+
+<div class=" ms-4 mt-5 py-5">
+    <select id="cmbBooks" onchange="loadBooksDetails()" asp-items="ViewBag.BooksList">
+        <option name="">Select a Book</option>
+    </select>
+</div>
+
+<div id="Details">
+
+</div>
+
+<script>
+  function  loadBooksDetails(){
+    var selectedValue = $('#cmbBooks').val();
+    var path='@Url.Action("LoadBooksInfoPartial","Category")';
+    path = path + '/'+ selectedValue
+     //alert(path);
+    $('#Details').load(path);
+  }
+</script>
+
+
+

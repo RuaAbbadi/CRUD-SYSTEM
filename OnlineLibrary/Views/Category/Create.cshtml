@@ -1,0 +1,26 @@
+﻿@model BookCategoryViewModel
+    @{
+    ViewData["Title"] = "Create";
+    }
+
+
+
+
+<form asp-action="Create" method="post" class="mt-5 py-5 ms-3">
+        <div class="form-group mb-3">
+            <input class="form-control w-50" asp-for="Name" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-group-textarea mb-3">
+            <textarea class="form-control w-50" asp-for="Description"></textarea>
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+           <div class="text-left form-group">
+               <button class="btn btn-primary btn-lg text-uppercase" type="submit">Create</button>
+           </div>
+</form>
+
+  @section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

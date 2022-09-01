@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BookCategoryViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<section class="">
+     <div class="container py-5 my-5 ">
+             <div class="row py-4">
+                 <div class="col-lg-6">
+                      <h2 class="section-heading text-uppercase">Books Categories</h2>
+                 </div>
+                  <div class="col-lg-6 text-end">
+                      <a class="btn btn-primary btn-lg text-uppercase" asp-controller="Category" asp-action="Create"><i class="bi bi-plus-circle-fill"></i>  Create New Category</a>
+                 </div>
+             </div>
+             <br/>
+             <br/>
+       <div class="row text-center mt-3">
+            @foreach (var cat in Model)
+            {
+                <div class="col-md-4 mt-5">
+                    <h4 class="my-3">@cat.Name</h4>
+                    <p class="text-muted">@cat.Description</p>
+                    <a asp-controller="Category" asp-action="Edit" asp-route-id="@cat.Id"><i class="bi bi-pencil-square fs-4 me-2"></i></a>
+                    <a asp-controller="Category" asp-action="Delete" asp-route-id="@cat.Id"><i class="bi bi-trash3 fs-4"></i></a>
+                </div>
+                
+            }
+        </div>
+       </div>
+}
+</section>
+

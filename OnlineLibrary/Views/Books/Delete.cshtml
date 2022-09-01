@@ -1,0 +1,25 @@
+﻿@model CreateBookViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<form asp-action="Delete" method="post" class="mt-5 py-5 ms-5">
+       <h2 class="my-4 text-danger">Delete @Model.Title Book</h2>
+        <input type="hidden" asp-for="Id"/>
+        <div class="form-group mb-3">
+            <input class="form-control w-50" asp-for="Title" disabled />
+        </div>
+         <div class="form-group form-group-textarea mb-3">
+            <img src="~/BooksImages/@Model.CurrentImageUrl" class="form-control  w-50" asp-for="CurrentImageUrl"/>
+        </div>
+        <div class="form-group form-group-textarea mb-3">
+            <textarea class="form-control  w-50" asp-for="Description" disabled></textarea>
+        </div>
+        <div class="text-left form-group">
+           <button class="btn btn-danger btn-lg text-uppercase mt-3" type="submit">Delete</button>
+        </div>
+</form>
+
+
+

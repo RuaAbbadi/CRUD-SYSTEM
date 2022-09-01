@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CreateAuthorViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@section IndexSection {
+     <div class="container py-5 my-5">
+             <div class="row py-4">
+                 <div class="col-lg-6">
+                      <h2 class="section-heading text-uppercase">Authors</h2>
+                 </div>
+                  <div class="col-lg-6 text-end">
+                      <a class="btn btn-primary btn-lg text-uppercase" asp-controller="Author" asp-action="Create"><i class="bi bi-plus-circle-fill"></i>  Create New Author</a>
+                 </div>
+                 <hr class="mt-4"/>
+             </div>
+             <br/>
+             <br/>
+       <div class="row">
+            @foreach (var Auth in Model)
+            {
+                <div class=" col-lg-6 mt-3">
+                    <h4 class="my-3">@Auth.Name</h4>
+                </div>
+                <div  class=" col-lg-5 mt-3 pt-3">
+                    <a asp-controller="Author" asp-action="Edit" asp-route-id="@Auth.Id"><i class="bi bi-pencil-square fs-4 me-2"></i></a>
+                   <a asp-controller="Author" asp-action="Delete" asp-route-id="@Auth.Id"><i class="bi bi-trash3 fs-4"></i></a>
+                </div>  
+            }
+        </div>
+       </div>
+}
+

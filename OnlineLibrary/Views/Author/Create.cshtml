@@ -1,0 +1,22 @@
+﻿@model CreateAuthorViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row py-5 my-5 ms-4 ">
+    <div class="col-lg-12 mt-5">
+      <form asp-action="Create" method="post" enctype="multipart/form-data">
+           <div class="form-group">
+            <label class="mb-2" asp-for="Name"></label>
+            <input asp-for="Name" class="form-control w-50"/>
+            <span asp-validation-for="Name" class="text-danger"></span>
+           </div>
+
+            <br/>
+           <div class="form-group my-4">
+               <input type="submit" value="Create" class="btn btn-primary"/>
+           </div>
+        </form>
+    </div>  
+</div>

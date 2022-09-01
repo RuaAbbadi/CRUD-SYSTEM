@@ -1,0 +1,58 @@
+﻿@model CreateBookViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row py-5 my-5 ms-4">
+    <div class="col-lg-12">
+      <form asp-action="Create" method="post" enctype="multipart/form-data">
+           <div class="form-group">
+            <label class="mb-2" asp-for="Title"></label>
+            <input asp-for="Title" class="form-control w-50"/>
+            <span asp-validation-for="Title" class="text-danger"></span>
+           </div>
+
+            <br/>
+
+            <div class="form-group">
+             <label class="mb-2"  asp-for="ImageFile"></label>
+             <input asp-for="ImageFile" class="form-control  w-50"/>
+             <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+             
+            <br/>
+
+            <div class="form-group">
+             <label class="mb-2" asp-for="Publisher"></label>
+             <input asp-for="Publisher" class="form-control  w-50"/>
+             <span asp-validation-for="Publisher" class="text-danger"></span>
+            </div>
+
+              <br/>
+
+              <div class="form-group">
+             <label class="mb-2" asp-for="Description"></label>
+             <input asp-for="Description" class="form-control  w-50"/>
+             <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+            <br/>
+            <div class="form-group">
+            <label class="mb-2" asp-for="CategoryId"></label>
+            <select asp-for="CategoryId" asp-items="ViewBag.CategorySelect" class="form-control  w-50">
+                <option value="">Select</option>
+             </select>
+            <span asp-validation-for="CategoryId" class="text-danger"></span>
+           </div>
+
+            <br/>
+
+           <div class="form-group my-4">
+               <input type="submit" value="Create" class="btn btn-primary"/>
+           </div>
+        </form>
+    </div>  
+</div>
+
+
